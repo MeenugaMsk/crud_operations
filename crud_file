@@ -1,0 +1,285 @@
+def crud_on_lists():
+    print("A.Create B.Read C.Update D.Delete")
+    user_choice = input("Choose the operation to be performed on lists from above")
+    
+    # Creating lists
+    
+    if user_choice == 'a':
+        input_string = input('Enter elements of a list separated by space ')
+        print("\n")
+        user_list = input_string.split()
+        print(f" The list created is {user_list}")
+    
+    # OTHER CHOICES
+    
+    elif user_choice == 'b' or user_choice == 'c' or user_choice == 'd':
+        input_string = input('Enter elements of a list separated by space ')
+        print("\n")
+        user_list = input_string.split()
+        
+        # reading of list
+        if user_choice == 'b':
+            print(f"list you entered is {user_list}")
+        
+        # UPDATING LIST
+        
+        elif user_choice == 'c':                                 
+            print(f"list you entered is {user_list}")
+            length_of_list = len(user_list)
+            valid_position = True
+            while valid_position:
+                position = (input("enter the position you want to update "))
+                if (position.isdigit()) and int(position) <= length_of_list and int(position) !=0:
+                    position = int(position)
+                    element = input("Enter the element you want to update with ")
+                    user_list[position-1] = element
+                    print(f"The updated list is {user_list}")
+                    valid_position = False
+                else:
+                    print("Not a valid position number")
+                    valid_position = True
+        # DELETING
+        elif user_choice == 'd':
+            print(f"list you entered is {user_list}")
+            loopAgain = True
+            while loopAgain:
+                removable_item = input("enter the item you want to remove")
+                if removable_item in user_list:
+                    user_list.remove(removable_item)
+                    print(f"The new list after removal is {user_list}")
+                    loopAgain = False
+                else:
+                    print("Entered element not present in list")
+                    loopAgain = True
+        else:
+            print("Sorry you entered a wrong choice")
+            crud_on_lists()
+    
+def crud_on_tuples():
+    print("A.Create B.Read C.Update D.Delete")
+    user_choice = input("Choose the operation to be performed on tuples from above")
+    
+    # Creating tuples
+    
+    if user_choice == 'a':
+        input_string = input('Enter elements of a tuple separated by space ')
+        print("\n")
+        user_list = input_string.split()
+        user_tuple = tuple(user_list)
+        print(f"The tuple created by you is {user_tuple}")
+    
+    # OTHER OPTIONS 
+    
+    elif user_choice == 'b' or user_choice == 'c' or user_choice == 'd':
+        input_string = input('Enter elements of a tuple separated by space ')
+        print("\n")
+        user_list = input_string.split()
+        user_tuple = tuple(user_list)
+        
+        # reading of tuples
+        if user_choice == 'b':
+            print(f"Tuple you entered is {user_tuple}")
+        
+        # UPDTING TUPLES
+        
+        elif user_choice == 'c':
+            print(f"Tuple you entered is {user_tuple}")
+            length_of_list = len(user_list)
+            valid_position = True
+            while valid_position:
+                position = input("enter the position you want to update ")
+                if (position.isdigit()) and int(position) <= length_of_list and int(position) !=0:
+                    position = int(position)
+                    element = input("Enter the element you want to update with ")
+                    user_list[position-1] = element
+                    user_tuple = tuple(user_list)
+                    print(f"The updated tuple is {user_tuple}")
+                    valid_position = False
+                else:
+                    print("Not a valid position number")
+                    valid_position = True
+        
+        # DELTION IN TUPLES        
+        
+        elif user_choice == 'd':
+            print(f"Tuple you entered is {user_tuple}")
+            loopMore = True
+            while loopMore:
+                removable_item = input("enter the item you want to remove")
+                if removable_item in user_list:
+                    user_list.remove(removable_item)
+                    user_tuple = tuple(user_list)
+                    print(f"The new tuple after removal is {user_tuple}")
+                else:
+                    print("Entered element not present in Tuple")
+                    loopMore = True
+    else:
+        print("INVALID CHOICE")
+        crud_on_tuples()
+    
+def crud_on_dict():
+    print("A.Create B.Read C.Update D.Delete")
+    user_choice = input("Choose the operation to be performed on dictionaries from above")
+    
+    # Creating dictionary
+    
+    if user_choice == 'a':
+        new_dict = {}
+        n = int(input("Enter the number of elements you want in dictionary"))
+        for _ in range(n):
+            k = input("Enter the key: ")
+            v = input("Enter the value: ")
+            new_dict.update({k:v})
+        print(f"The dictionary you created is {new_dict}")
+    # Reading the list
+    elif user_choice == 'b' or user_choice == 'c' or user_choice == 'd':
+        new_dict = {}
+        n = int(input("Enter the number of elements you want in dictionary"))
+        for _ in range(n):
+            k = input("Enter the key: ")
+            v = input("Enter the value: ")
+            new_dict.update({k:v})
+        # reading of list
+        if user_choice == 'b':
+            print(f"The dictionary you created is {new_dict}")
+            user_key = input("enter the key for which the value has to be displayed ")
+            print(new_dict[user_key])
+        elif user_choice == 'c':
+            print(f"The dictionary you created is {new_dict}")
+            user_key = input("Enter the key to be updated: ")
+            user_value = input("Enter the value to be updated for the specified key")
+            new_dict.update({user_key:user_value})
+            print(f"The updated dictionary is {new_dict}")
+        elif user_choice == 'd':
+            print(f"The dictionary you created is {new_dict}")
+            removable_item_key = input("enter the key of item you want to delete")
+            new_dict.pop(removable_item_key)
+            print(f"The new dictionary after removal is {new_dict}")
+    else:
+        print("INVALID CHOICE")
+        crud_on_dict()
+
+def crud_on_sets():
+    print("A.Create B.Read C.Update D.Delete")
+    user_choice = input("Choose the operation to be performed on sets from above")
+    
+    # Creating set
+    
+    if user_choice == 'a':
+        new_set = set()
+        loop_on = True
+        while loop_on:
+            n = input("Enter the number of elements you want in set")
+            if (n.isdigit()):
+                n = int(n)
+                for _ in range(n):
+                    x = input("Enter the element: ")
+                    new_set.add(x)
+                print(f"The set you created is {new_set}")
+                loop_on = False
+            else:
+                print("Not valid number")
+                loop_on = True
+        
+    # Reading ,updating and deleting on sets
+    
+    elif user_choice == 'b' or user_choice == 'c' or user_choice == 'd':
+        new_set = set()
+        loop_on = True
+        while loop_on:
+            n = input("Enter the number of elements you want in set")
+            if (n.isdigit()):
+                n = int(n)
+                for _ in range(n):
+                    x = input("Enter the element: ")
+                    new_set.add(x)
+                print(f"The set you created is {new_set}")
+                loop_on = False
+            else:
+                print("Not valid number")
+                loop_on = True
+        
+        if user_choice == 'b':      # checking if an element is present in the set or not
+            
+            user_value = input("enter the element you want to check if present in the set: ")
+            if user_value in new_set:
+                print("Yes it's present in the set")
+            else:
+                print("Not present in the set")
+        elif user_choice == 'c':
+            
+            user_element = input("Enter the element to be updated in set: ")
+            new_set.add(user_element)
+            print(f"The updated set is {new_set}")
+        elif user_choice == 'd':
+            
+            user_ele = input("Enter the element that you want to delete")
+            if user_ele in new_set:
+                new_set.discard(user_ele)
+                print(f"the new set after deletion is {new_set}")
+            else:
+                print("Element is already not present in the set")
+    else:
+        print("INVALID CHOICE")
+        crud_on_sets()
+
+def crud_on_files():
+    print("A.Create B.Read C.Update D.Delete")
+    user_choice = input("Choose the operation to be performed on Files from above")
+    
+    if user_choice == 'c':
+        
+        user_file_name = input("enter the file name to be updated: ")
+        message_add = input("Enter the message that you want to update: ")
+        with open(user_file_name, mode = "a") as file_update:
+            file_update.write("\n"+ message_add)
+            print("file has been updated") 
+    
+    elif user_choice == 'a':
+        
+        user_file_name = input("Enter the file name that you want to create: ")
+        user_text = input("Enter the message you want to insert: ")
+        with open(user_file_name, mode = "w") as new_file:
+            new_file.write(user_text)
+        print("Your file has been created")    
+    elif user_choice == 'b':
+        user_file_name = input("Enter the file name that you want to read: ")
+        with open(user_file_name, mode = "r") as file_r:
+            contents = file_r.read()
+            print("The content in the file is: ")
+            print(contents)
+    elif user_choice == 'd':
+        user_file_name = input("Enter the file name that you want to delete")
+        if os.path.exists(user_file_name):
+            os.remove(user_file_name)
+            print("File deletion successful")
+        else:
+            print("The file does not exist")
+    else:
+        print("Invalid choice")
+        crud_on_files()
+            
+
+
+# MENU
+import os
+
+def options():
+    print("Performing CRUD operations on the following")
+    print("A.List B.Tuples C.Sets D.Dictionaries E.Files")
+    user_choice =input("Please select any one of the options from above: ").lower()
+    if user_choice == 'a':
+        crud_on_lists()
+    elif user_choice == 'b':
+        crud_on_tuples()
+    elif user_choice == 'c':
+        crud_on_sets()
+    elif user_choice == 'd':
+        crud_on_dict()
+    elif user_choice == 'e':
+        crud_on_files()
+    else:
+        print("Please enter a valid option")
+        options()
+        
+options()  
